@@ -3,11 +3,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 import time
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 def loginToTeams(driver: webdriver, email: str, password: str, stay_open=True): 
     # ugly code, awfull xpath patterns but for now it doesnt matter. we will fix it
 
     driver.get("https://www.microsoft.com/pl-pl/microsoft-teams/log-in")
+    
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//button[text()='Akceptuję']"))).click()
     time.sleep(5)
     homePageLoginButton = driver.find_element(By.XPATH, "/html/body/div[3]/div/div[2]/main/div/div/div/div[2]/section/div/div[2]/div/div/div/div/div/div[3]/a[1]")
     homePageLoginButton.click()
@@ -38,6 +41,5 @@ def loginToTeams(driver: webdriver, email: str, password: str, stay_open=True):
 
     _submit = driver.find_element(By.XPATH, '/html/body/div/form/div/div/div[2]/div[1]/div/div/div/div/div/div[3]/div/div[2]/div/div[3]/div[2]/div/div/div[2]/input')
     _submit.click()
-    if stay_open:
-        input('Press any key to proceed...')
+    
 

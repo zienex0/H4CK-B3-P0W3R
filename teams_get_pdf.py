@@ -36,7 +36,7 @@ def getPdf(driver):
     teams_ppj_files_xpath = "//button[@id='3ed5b337-c2c9-4d5d-b7b4-84ff09a8fc1c']"
     click_element(driver,teams_ppj_files_xpath)
     # Open filters
-    ppj_files_filters_xpath = "//div[@class='ms-OverflowSet-item item-104']"   # Element with XPath '//div[@class='ms-OverflowSet-item item-104']' not found. Why??????
+    ppj_files_filters_xpath = "//i[@data-icon-name='Filter' and contains(@class, 'ms-Icon')]"   # Element with XPath '//div[@class='ms-OverflowSet-item item-104']' not found. Why??????
     click_element(driver,ppj_files_filters_xpath)
     
     # Set slider to maximum
