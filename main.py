@@ -1,5 +1,6 @@
 from selenium import webdriver
 from teams_init_and_login import loginToTeams
+from teams_get_pdf import getPdf
 
 def main():
     driver = webdriver.Chrome()
@@ -8,7 +9,7 @@ def main():
 
     # login to Teams
     loginToTeams(driver=driver, email=email, password=password)
-
+    getPdf(driver=driver)
 
 if __name__ == '__main__':
     main()
